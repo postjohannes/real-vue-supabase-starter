@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { NButton, NIcon, NResult, NSpace } from 'naive-ui';
-import { Sync } from '@vicons/fa';
-import { router } from "@/router";
+import router from "@/router";
+import Icon from "@/components/Icon.vue";
 
 const backClicked = () => {
   router.back();
@@ -18,9 +18,7 @@ const backClicked = () => {
       <template #footer>
         <n-button icon-placement="right" @click="backClicked">
           <template #icon>
-            <n-icon>
-              <sync/>
-            </n-icon>
+            <icon type="Sync"/>
           </template>
           Go back
         </n-button>

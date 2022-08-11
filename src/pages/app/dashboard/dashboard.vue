@@ -1,7 +1,7 @@
 <template>
-	<admin-view>
+	<app-view>
 		<h1>Dashboard</h1>
-	</admin-view>
+	</app-view>
 </template>
 
 <script lang="ts">

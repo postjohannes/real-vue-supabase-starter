@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
-import { FormInst, NDrawer, NDrawerContent, NForm, NFormItem, NInput, NButton, NSwitch,NSkeleton, useMessage } from 'naive-ui';
+import { defineProps, defineEmits, ref, watch } from "vue";
+import { FormInst, NDrawer, NDrawerContent, NSwitch, NSkeleton, useMessage } from 'naive-ui';
 
 import { initSettings, updateSettings } from "@/services/SettingsService";
 import { useProfileSettingsStore } from "@/stores/settingsStore";
@@ -20,8 +20,8 @@ const model = ref({
 const props = defineProps({
   active: {
     type: [Boolean],
-    required: false,
-    default: null,
+    required: true,
+    default: false,
   }
 })
 watch(() => props.active, async () => {
@@ -45,7 +45,7 @@ watch(show, () => {
 })
 const formRef = ref<FormInst | null>(null)
 
-async function saveSettings() {
+const saveSettings = async () => {
   loading.value = true
   await updateSettings({
     displayName: model.value.name,
@@ -83,7 +83,7 @@ async function saveSettings() {
         </n-form>
       </div>
       <template #footer>
-        <div style="display: flex; justify-content: flex-end">
+        <div class="left">
           <n-button class="dist" round type="warning" @click="show = false">
             Close
           </n-button>
@@ -97,6 +97,10 @@ async function saveSettings() {
 </template>
 
 <style scoped>
+.left {
+  display: flex;
+  justify-content: flex-end;
+}
 .dist {
   margin-right: 10px;
 }

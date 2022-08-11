@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {handleOAuthLogin} from "@/services/AuthService";
-import {NButton, NIcon, NSpace, useMessage} from 'naive-ui';
-import {Facebook, Google, Twitter} from '@vicons/fa';
+import { handleOAuthLogin } from "@/services/AuthService";
+import { NButton, NIcon, NSpace, useMessage } from 'naive-ui';
+import { Facebook, Google, Twitter } from '@vicons/fa';
 
 const message = useMessage();
 const messageDuration = 5000;

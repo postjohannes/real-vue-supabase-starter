@@ -39,9 +39,9 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import { useRouter } from 'vue-router'
 import { handleSignIn } from '@/services/AuthService';
 import { NButton, NDivider, NForm, NFormItem, NInput, useMessage } from 'naive-ui';
-import { router } from '@/router';
 import Logo from '@/components/Logo.vue';
 import OAuthLogin from "@/components/OAuthLogin.vue";
 
@@ -59,6 +59,7 @@ export default defineComponent({
   setup() {
     const message = useMessage();
     const messageDuration = 5000;
+    const router = useRouter()
 
     const formRef = ref();
 
@@ -101,7 +102,9 @@ export default defineComponent({
 
     function handleValidateButtonClick(e: any) {
       e.preventDefault();
-      if (formRef.value) {
+      if (!modelRef.value.email || modelRef.value.email.length === 0) {
+        message.error('Please enter an email address ...');
+      } else if (formRef.value) {
         formRef.value.validate(async (error: any) => {
           if (!error) {
             try {

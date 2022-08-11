@@ -21,7 +21,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <admin-view>
+  <app-view>
     <h1>Profile from '{{ profileSettingsStore.settings.displayName }}'</h1>
-  </admin-view>
+  </app-view>
 </template>

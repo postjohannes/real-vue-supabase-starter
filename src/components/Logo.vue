@@ -2,7 +2,9 @@
 </script>
 
 <template>
-  <img class="logo" src="/logo.png" />
+  <router-link to="/">
+    <img class="logo" src="/logo.png" />
+  </router-link>
 </template>
 
 <style scoped>
